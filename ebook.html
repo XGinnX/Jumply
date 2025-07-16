@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="./Css/style_index.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a onclick="loadPage('home.html')" class="logo-link">
+                <img src="./Imagens/jumply-logo.png" id="logo" alt="Logo">
+            </a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <div class="menu" id="menu">
+                <a onclick="loadPage('home.html')">Home</a>
+                <a onclick="loadPage('quem-somos.html')">Quem Somos</a>
+                <div class="dropdown">
+                    <a>Cursos e Treinamentos ▼</a>
+                    <ul class="dropdown-content">
+                        <li>Currículo 1.0</li>
+                        <li>G Workspace 1.0</li>
+                        <li>Entrevista 1.0</li>
+                        <li>LinkedIn Basic</li>
+                    </ul>
+                </div>
+                <a onclick="loadPage('testes.html')">Ebooks</a>
+            </div>
+        </nav>
+    </header>
+
+
+    <main id="content">
+        <p>Bem-vindo à nossa página principal!</p>
+    </main>
+    <footer class="rodape">
+        <div class="rodape__linha_1">
+            <div class="rodape__coluna">
+                  <a onclick="loadPage('home.html')" class="logo-link centralizar-coluna">
+                <img src="./Imagens/jumply-logo.png" id="logo" alt="Logo">
+            </a>
+                <p class="rodape__descricao">
+                    A <span class="azul">Jumply</span> é uma plataforma criada <span class="azul">por jovens</span> e
+                    <span class="azul">para jovens</span>, dedicada a apoiar você nessa <span class="azul">jornada
+                        desafiadora</span> de entrar no <span class="azul">mercado de trabalho</span>.
+                </p>
+            </div>
+            <div class="rodape__coluna">
+                <h2 class="rodape__titulo"> Social </h2>
+                <ul class="rodape__lista-links">
+                    <li><a class="rodape__lista-links__item" href="https://twitter.com/login?lang=pt"
+                            target="_blank">LinkedIn</a></li>
+                    <li><a class="rodape__lista-links__item" href="https://twitter.com/login?lang=pt"
+                            target="_blank">Instagram</a></li>
+                    <li><a class="rodape__lista-links__item" href="https://twitter.com/login?lang=pt"
+                            target="_blank">Tiktok</a></li>
+                    <li><a class="rodape__lista-links__item" href="https://Youtube.com" target="_blank">Youtube</a></li>
+                </ul>
+            </div>
+            <div class="rodape__coluna">
+                <h2 class="rodape__titulo"> Links</h2>
+                <ul class="rodape__lista-links">
+                    <li><a class="rodape__lista-links__item" href="Index.html">Home</a></li>
+                    <li><a class="rodape__lista-links__item" href="Sobre.html">Quem somos</a> </li>
+                    <li><a class="rodape__lista-links__item" href="Portifolio.html">Cursos e Treinamentos</a></li>
+                    <li><a class="rodape__lista-links__item" href="Contato.html">Ebooks</a></li>
+                    <li><a class="rodape__lista-links__item" href="Contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="rodape__linha_2">
+            © 2025 Jumply. Todos os direitos reservados. Proibida a reprodução total ou parcial sem autorização prévia.
+        </div>
+    </footer>
+    <script src="./Js/carregamento.js"></script>
+</body>
+
+</html>
