@@ -13,10 +13,10 @@
             <a onclick="loadPage('home.html')" class="logo-link">
                 <img src="./Imagens/jumply-logo.png" id="logo" alt="Logo">
             </a>
-            <div class="menu">
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <div class="menu" id="menu">
                 <a onclick="loadPage('home.html')">Home</a>
                 <a onclick="loadPage('quem-somos.html')">Quem Somos</a>
-
                 <div class="dropdown">
                     <a>Cursos e Treinamentos ▼</a>
                     <ul class="dropdown-content">
@@ -31,15 +31,45 @@
         </nav>
     </header>
 
+
     <main id="content">
         <p>Bem-vindo à nossa página principal!</p>
     </main>
-<footer>
-    <div class="line"></div>
-    <div class="direito">   
-         © 2025 Jumply. Todos os direitos reservados. Proibida a reprodução total ou parcial sem autorização prévia.
-</div>
-</footer>
+    <footer class="rodape">
+        <div class="rodape__linha_1">
+            <div class="rodape__coluna">
+                <a href="Index.html" class="logo--branco">Design Responsivo</a>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam voluptates ab, cupiditate mollitia,
+                    sunt perferendis est inventore facilis eaque ipsum repudiandae voluptate dignissimos saepe. Vitae
+                    nemo temporibus nobis consequuntur sint?</p>
+            </div>
+            <div class="rodape__coluna">
+                <h2 class="rodape__titulo"> Social </h2>
+                <ul class="rodape__lista-links">
+                    <li><a class="rodape__lista-links__item" href="https://twitter.com/login?lang=pt"
+                            target="_blank">LinkedIn</a></li>
+                    <li><a class="rodape__lista-links__item" href="https://twitter.com/login?lang=pt"
+                            target="_blank">Instagram</a></li>
+                    <li><a class="rodape__lista-links__item" href="https://twitter.com/login?lang=pt"
+                            target="_blank">Tiktok</a></li>
+                    <li><a class="rodape__lista-links__item" href="https://Youtube.com" target="_blank">Youtube</a></li>
+                </ul>
+            </div>
+            <div class="rodape__coluna">
+                <h2 class="rodape__titulo"> Links</h2>
+                <ul class="rodape__lista-links">
+                    <li><a class="rodape__lista-links__item" href="Index.html">Home</a></li>
+                    <li><a class="rodape__lista-links__item" href="Sobre.html">Sobre nós</a> </li>
+                    <li><a class="rodape__lista-links__item" href="Portifolio.html">Portifolio</a></li>
+                    <li><a class="rodape__lista-links__item" href="Contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="rodape__linha_2">
+            © 2025 Jumply. Todos os direitos reservados. Proibida a reprodução total ou parcial sem autorização prévia.
+        </div>
+    </footer>
     <script src="./Js/carregamento.js"></script>
 </body>
+
 </html>

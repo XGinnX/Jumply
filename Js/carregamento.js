@@ -18,20 +18,4 @@
     }
 
 
-    const images = document.querySelectorAll('.carousel img');
-    let index = 0;
-
-    function showImage(i) {
-        images.forEach(img => img.classList.remove('active'));
-        images[i].classList.add('active');
-    }
-
-    function nextImage() {
-        index = (index + 1) % images.length;
-        showImage(index);
-    }
-
-    function previousImage() {
-        index = (index - 1 + images.length) % images.length;
-        showImage(index);
-    }
+   

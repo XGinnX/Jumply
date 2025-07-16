@@ -7,25 +7,29 @@ body {
 header {
     background-color: rgb(32, 213, 229);
     color: white;
-    padding: 0.5em 1em;
+    padding: 0 1em;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .navbar {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .logo-link img {
-    width: 120px;
+    width: 100px;
     height: auto;
-    margin-right: 20px;
+    margin-right: 15px;
 }
 
 .menu {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 15px;
@@ -36,11 +40,10 @@ header {
     text-decoration: none;
     font-weight: bold;
     cursor: pointer;
-    position: relative;
 }
 
 .menu a:hover {
-    color: #ffcc00;
+    color: #02161e;
 }
 
 .dropdown {
@@ -65,7 +68,6 @@ header {
 .dropdown-content li {
     padding: 10px;
     color: white;
-    font-weight: normal;
     cursor: pointer;
 }
 
@@ -84,28 +86,112 @@ main {
     text-align: center;
 }
 
-.direito {
+/* Rodapé */
+.rodape__linha_1 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-image: url("../Imagens/rodape-bg.jpg");
+    background-size: cover;
+    padding: 30px 20px;
+}
+
+.rodape__coluna {
+    flex: 1 1 250px;
+    margin: 20px;
+    color: white;
+}
+
+.rodape__linha_2 {
+    background-color: #20b2c2;
     text-align: center;
-    padding: 1em;
-    background-color: #f0f0f0;
+    padding: 15px;
+    color: #000000;
     font-size: 14px;
-    color: #555;
+}
+
+.logo--branco {
+    background-image: url("../Imagens/logotipo-branco.png");
+    background-repeat: no-repeat;
+    width: 120px;
+    height: 53px;
+    text-indent: -9999px;
+    display: block;
+    margin: 0 0 20px 0;
+}
+
+.rodape__titulo {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+.rodape__lista-links {
+    padding: 0;
+    list-style: none;
+}
+
+.rodape__lista-links__item {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.rodape__lista-links__item::before {
+    content: '>';
+    margin-right: 10px;
+    color: #20b2c2;
+}
+
+/* Botão hamburguer para menu mobile */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
+    header {
+        justify-content: space-between;
+        padding: 0 1em;
     }
 
     .menu {
+        display: none;
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        background-color: rgb(32, 213, 229);
+        padding: 10px 0;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
     }
 
     .dropdown-content {
         position: static;
         width: 100%;
         box-shadow: none;
+    }
+
+    .rodape__linha_1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rodape__coluna {
+        margin: 10px 0;
     }
 }
