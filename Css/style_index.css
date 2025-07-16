@@ -1,3 +1,4 @@
+/* Estrutura geral */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,6 +16,14 @@ header {
     position: relative;
 }
 
+main {
+    padding: 2em;
+    min-height: 200px;
+    color: white;
+    text-align: center;
+}
+
+/* Navegação */
 .navbar {
     display: flex;
     justify-content: center;
@@ -59,9 +68,6 @@ header {
     min-width: 180px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    padding: 0;
-    margin: 0;
-    list-style: none;
     border-radius: 5px;
 }
 
@@ -79,72 +85,108 @@ header {
     display: block;
 }
 
-main {
-    padding: 2em;
-    min-height: 200px;
-    color: white;
-    text-align: center;
-}
-
 /* Rodapé */
 .rodape__linha_1 {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     flex-wrap: wrap;
     background-image: url("../Imagens/rodape-bg.jpg");
     background-size: cover;
-    padding: 30px 20px;
+    padding: 30px 0;
+    border-top: 1px solid #ffffff30;
+    border-bottom: 1px solid #ffffff30;
 }
 
 .rodape__coluna {
-    flex: 1 1 250px;
-    margin: 20px;
+    flex: 1 1 25%;
+    padding: 20px;
     color: white;
+    min-width: 220px;
+    box-sizing: border-box;
+    position: relative;
+    text-align: left;
 }
 
-.rodape__linha_2 {
-    background-color: #20b2c2;
+/* Divisor entre as colunas */
+.rodape__coluna:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: 0;
+    width: 1px;
+    height: 80%;
+    background-color: #ffffff40;
+}
+
+/* Centralização da primeira coluna */
+.centralizar-coluna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 15px;
-    color: #000000;
-    font-size: 14px;
 }
 
-.logo--branco {
-    background-image: url("../Imagens/logotipo-branco.png");
-    background-repeat: no-repeat;
-    width: 120px;
-    height: 53px;
-    text-indent: -9999px;
+/* Logo no rodapé */
+.logo-link-footer img {
+    width: 150px;
+    height: auto;
+    margin: 0 auto 20px auto;
     display: block;
-    margin: 0 0 20px 0;
 }
 
+/* Texto descrição */
+.rodape__descricao {
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 300px;
+    margin: 0 auto;
+    color: #ddd;
+}
+
+/* Destaque azul */
+.azul {
+    color: #20d5e5;
+    font-weight: bold;
+}
+
+/* Títulos e listas */
 .rodape__titulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
     border-bottom: 1px solid #fff;
-    padding-bottom: 10px;
-    font-size: 20px;
+    padding-bottom: 5px;
 }
 
 .rodape__lista-links {
-    padding: 0;
     list-style: none;
+    padding: 0;
 }
 
 .rodape__lista-links__item {
     color: #fff;
     text-decoration: none;
-    margin-bottom: 10px;
     display: block;
+    margin: 10px 0;
 }
 
 .rodape__lista-links__item::before {
     content: '>';
-    margin-right: 10px;
-    color: #20b2c2;
+    margin-right: 8px;
+    color: #20d5e5;
 }
 
-/* Botão hamburguer para menu mobile */
+/* Linha 2 do rodapé */
+.rodape__linha_2 {
+    background-color: #20b2c2;
+    text-align: center;
+    padding: 15px;
+    color: #000;
+    font-size: 14px;
+}
+
+/* Botão menu mobile */
 .menu-toggle {
     display: none;
     font-size: 24px;
@@ -156,7 +198,7 @@ main {
     cursor: pointer;
 }
 
-/* Responsivo */
+/* Responsividade */
 @media (max-width: 768px) {
     header {
         justify-content: space-between;
@@ -192,6 +234,11 @@ main {
     }
 
     .rodape__coluna {
-        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .rodape__coluna:not(:last-child)::after {
+        display: none;
     }
 }
