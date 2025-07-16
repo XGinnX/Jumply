@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="./Css/style_index.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a onclick="loadPage('home.html')" class="logo-link">
+                <img src="./Imagens/jumply-logo.png" id="logo" alt="Logo">
+            </a>
+            <div class="menu">
+                <a onclick="loadPage('home.html')">Home</a>
+                <a onclick="loadPage('quem-somos.html')">Quem Somos</a>
+
+                <div class="dropdown">
+                    <a>Cursos e Treinamentos ▼</a>
+                    <ul class="dropdown-content">
+                        <li>Currículo 1.0</li>
+                        <li>G Workspace 1.0</li>
+                        <li>Entrevista 1.0</li>
+                        <li>LinkedIn Basic</li>
+                    </ul>
+                </div>
+                <a onclick="loadPage('testes.html')">Ebooks</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="content">
+        <p>Bem-vindo à nossa página principal!</p>
+    </main>
+<footer>
+    <div class="line"></div>
+    <div class="direito">   
+         © 2025 Jumply. Todos os direitos reservados. Proibida a reprodução total ou parcial sem autorização prévia.
+</div>
+</footer>
+    <script src="./Js/carregamento.js"></script>
+</body>
+</html>
