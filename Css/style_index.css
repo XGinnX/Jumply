@@ -242,3 +242,88 @@ main {
         display: none;
     }
 }
+.menu {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: rgb(32, 213, 229);
+        padding: 10px 0;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+/* Remove as bolinhas */
+.dropdown-content {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Links sem decoração e com hover */
+.dropdown-content li {
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.dropdown-content li:hover {
+    background-color: #1e7a8c;  /* Cor no hover */
+}
+
+
+.carousel-container {
+    max-width: 1200px;             /* Mais largo no desktop */
+    margin: 20px auto 0 auto;      /* Reduz a margem superior */
+    padding: 0;                    /* Remove espaçamentos internos excessivos */
+    box-sizing: border-box;
+}
+
+.carousel-slides {
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff10;
+}
+
+.carousel__slide {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel__slide.active {
+    display: flex;
+}
+
+.carousel__slide img {
+    width: 100%;
+    max-height: 450px;             /* Um pouco maior */
+    object-fit: cover;
+    border-radius: 0px;            /* Bordas retas (pontiagudas) */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 768px) {
+    .carousel-container {
+        max-width: 95%;
+        margin: 15px auto 0 auto;
+    }
+
+    .carousel__slide img {
+        max-height: 250px;
+    }
+}

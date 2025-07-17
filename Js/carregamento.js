@@ -6,6 +6,7 @@ function loadPage(page) {
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             document.getElementById('content').innerHTML = xhr.responseText;
+            executePageScripts(); // <<< Adicionado
         } else {
             document.getElementById('content').innerHTML = "<p>Erro ao carregar a página.</p>";
         }
@@ -18,4 +19,20 @@ function loadPage(page) {
     xhr.send();
 }
 
+function executePageScripts() {
+    const scripts = document.getElementById('content').querySelectorAll('script');
+    scripts.forEach(oldScript => {
+        const newScript = document.createElement('script');
+        if (oldScript.src) {
+            newScript.src = oldScript.src;
+        } else {
+            newScript.textContent = oldScript.textContent;
+        }
+        document.body.appendChild(newScript);
+    });
+}
 
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+}
