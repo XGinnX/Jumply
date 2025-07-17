@@ -1,3 +1,5 @@
+
+
 function loadPage(page) {
     var xhr = new XMLHttpRequest();
     const url = './Pages/' + page;
