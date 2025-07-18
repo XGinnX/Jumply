@@ -16,7 +16,7 @@
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <div class="menu" id="menu">
                 <a onclick="loadPage('home.html')">Home</a>
-                <a onclick="loadPage('quem-somos.html')">Quem Somos</a>
+                <a onclick="loadPage('quemsomos.html')">Quem Somos</a>
                 <div class="dropdown">
                     <a>Cursos e Treinamentos ▼</a>
                     <ul class="dropdown-content">
@@ -26,7 +26,7 @@
                         <li>LinkedIn Basic</li>
                     </ul>
                 </div>
-                <a onclick="loadPage('testes.html')">Ebooks</a>
+                <a onclick="loadPage('ebook.html')">Ebooks</a>
                 <a onclick="loadPage('testes.html')">Calculadora</a>
             </div>
         </nav>
@@ -76,6 +76,11 @@
         </div>
     </footer>
     <script src="./Js/carregamento.js"></script>
+    <script src="./Js/carregamento.js"></script>
+<script>
+    window.onload = function () {
+        loadPage('home.html');
+    };
+</script>
 </body>
-
 </html>
