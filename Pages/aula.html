@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aulas - Jumply</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .video-section {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .video-section video {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .video-section p {
+      font-size: 16px;
+      line-height: 1.4;
+      color: #ddd;
+    }
+
+    .sidebar {
+      width: 50%;
+      background-color: #111;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .voltar {
+      background: linear-gradient(45deg, #2ac5f5, #0077ff);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .voltar:hover {
+      opacity: 0.9;
+    }
+
+    .aula-card {
+      background-color: #222;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      opacity: 0.5;
+      position: relative;
+    }
+
+    .aula-card img {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 15px;
+      filter: brightness(40%);
+    }
+
+    .aula-card span {
+      font-size: 16px;
+      color: #aaa;
+    }
+
+    .cadeado {
+      position: absolute;
+      left: 30px;
+      top: 15px;
+      width: 24px;
+      height: 24px;
+      background: url('cadeado.png') no-repeat center center;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    /* Scrollbar estilizada */
+    .sidebar::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background-color: #444;
+      border-radius: 4px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: #111;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .video-section,
+      .sidebar {
+        width: 100%;
+        height: auto;
+      }
+
+      .sidebar {
+        max-height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="video-section">
+    <a onclick="loadPage('home.html')" class="voltar">
+      <span>←</span> Voltar para o site
+    </a>
+
+    <video controls poster="thumbnail_aula1.png">
+      <source src="aula1.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+
+    <p><strong>Aula 1:</strong> Introdução ao Google Sheets com a Jumply — Aprenda de forma prática como começar a usar planilhas, entender fórmulas básicas e aplicar no seu dia a dia com clareza.</p>
+  </div>
+
+  <div class="sidebar">
+    <!-- Aulas bloqueadas -->
+    <div class="aula-card">
+      <img src="aula2.png" alt="Aula 2">
+      <div class="cadeado"></div>
+      <span>Aula 2 - Fórmulas básicas</span>
+    </div>
+    <div class="aula-card">
+      <img src="aula3.png" alt="Aula 3">
+      <div class="cadeado"></div>
+      <span>Aula 3 - Tabelas dinâmicas</span>
+    </div>
+    <div class="aula-card">
+      <img src="aula4.png" alt="Aula 4">
+      <div class="cadeado"></div>
+      <span>Aula 4 - Validação de dados</span>
+    </div>
+    <div class="aula-card">
+      <img src="aula5.png" alt="Aula 5">
+      <div class="cadeado"></div>
+      <span>Aula 5 - Colaboração e comentários</span>
+    </div>
+    <div class="aula-card">
+      <img src="aula6.png" alt="Aula 6">
+      <div class="cadeado"></div>
+      <span>Aula 6 - Automatizando tarefas</span>
+    </div>
+    <div class="aula-card">
+      <img src="aula7.png" alt="Aula 7">
+      <div class="cadeado"></div>
+      <span>Aula 7 - Google Apps Script</span>
+    </div>
+    <div class="aula-card">
+      <img src="aula8.png" alt="Aula 8">
+      <div class="cadeado"></div>
+      <span>Aula 8 - Projeto Final</span>
+    </div>
+  </div>
+
+</body>
+</html>
+<script src="../Js/carregamento.js"></script>
