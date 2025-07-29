@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Trabalhista</title>
+  <style>
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background-color: #01272e;
+    }
+
+    .tab-button {
+      background-color: #01272e;
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      color: #20d5e5;
+      font-size: 1rem;
+    }
+
+    .tab-button.active {
+      border-bottom: 2px solid #20d5e5;
+    }
+
+    .content {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: none;
+    }
+
+    button.calcular {
+      background: linear-gradient(to right, #017b92, #01c1d2);
+      border: none;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .resultado {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #013038;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>Calculadora Trabalhista</header>
+  <div class="tabs">
+    <button class="tab-button active" onclick="showTab('salario')">Salário</button>
+    <button class="tab-button" onclick="showTab('rescisao')">Rescisão</button>
+  </div>
+  <div class="content">
+    <div id="salario" class="tab-content">
+      <div class="form-group">
+        <label>Salário Bruto:</label>
+        <input type="number" id="salarioBruto" placeholder="Digite seu salário bruto">
+      </div>
+      <div class="form-group">
+        <label>Recebe vale transporte?</label>
+        <select id="valeTransporte">
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
+        </select>
+      </div>
+      <button class="calcular" onclick="calcularSalario()">Calcular</button>
+      <div class="resultado" id="resultadoSalario"></div>
+    </div>
+
+    <div id="rescisao" class="tab-content" style="display:none">
+      <div class="form-group">
+        <label>Salário Mensal:</label>
+        <input type="number" id="salarioMensal" placeholder="Digite o salário mensal">
+      </div>
+      <div class="form-group">
+        <label>Data de admissão:</label>
+        <input type="date" id="dataAdmissao">
+      </div>
+      <div class="form-group">
+        <label>Data de demissão:</label>
+        <input type="date" id="dataDemissao">
+      </div>
+      <div class="form-group">
+        <label>Dias Trabalhados no último mês:</label>
+        <input type="number" id="diasTrabalhados" placeholder="Ex: 15">
+      </div>
+      <div class="form-group">
+        <label>Férias vencidas?</label>
+        <select id="feriasVencidas">
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
+        </select>
+      </div>
+      <button class="calcular" onclick="calcularRescisao()">Calcular</button>
+      <div class="resultado" id="resultadoRescisao"></div>
+    </div>
+  </div>
+
+  <script>
+    function showTab(tab) {
+      document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+      document.getElementById(tab).style.display = 'block';
+      document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    function calcularSalario() {
+      const salario = parseFloat(document.getElementById("salarioBruto").value);
+      const vt = document.getElementById("valeTransporte").value === "sim" ? 0.06 * salario : 0;
+      const inss = salario * 0.08;
+      const fgts = salario * 0.08;
+      const liquido = salario - inss - vt;
+
+      const porDia = salario / 30;
+      const porHora = salario / 220;
+
+      document.getElementById("resultadoSalario").innerHTML = `
+        <p><strong>Salário Líquido:</strong> R$ ${liquido.toFixed(2)}</p>
+        <p><strong>Valor por dia:</strong> R$ ${porDia.toFixed(2)}</p>
+        <p><strong>Valor por hora:</strong> R$ ${porHora.toFixed(2)}</p>
+        <p><strong>INSS (8%):</strong> R$ ${inss.toFixed(2)}</p>
+        <p><strong>FGTS:</strong> R$ ${fgts.toFixed(2)}</p>
+        <p><strong>Desconto Vale Transporte:</strong> R$ ${vt.toFixed(2)}</p>
+      `;
+    }
+
+    function calcularRescisao() {
+      const salario = parseFloat(document.getElementById("salarioMensal").value);
+      const dias = parseInt(document.getElementById("diasTrabalhados").value);
+      const feriasVencidas = document.getElementById("feriasVencidas").value === "sim";
+
+      const dataAdmissao = new Date(document.getElementById("dataAdmissao").value);
+      const dataDemissao = new Date(document.getElementById("dataDemissao").value);
+
+      const diffMeses = (dataDemissao.getFullYear() - dataAdmissao.getFullYear()) * 12 + (dataDemissao.getMonth() - dataAdmissao.getMonth());
+
+      const saldoSalario = (salario / 30) * dias;
+      const avisoPrevio = salario;
+      const feriasProp = (salario / 12) * diffMeses;
+      const umTercoFerias = feriasProp / 3;
+      const decimoTerceiro = (salario / 12) * diffMeses;
+      const fgts40 = (saldoSalario + avisoPrevio + feriasProp + decimoTerceiro) * 0.4;
+      const feriasVencidasValor = feriasVencidas ? salario + (salario / 3) : 0;
+
+      const total = saldoSalario + avisoPrevio + feriasProp + umTercoFerias + decimoTerceiro + fgts40 + feriasVencidasValor;
+
+      document.getElementById("resultadoRescisao").innerHTML = `
+        <p><strong>Saldo de salário:</strong> R$ ${saldoSalario.toFixed(2)}</p>
+        <p><strong>Aviso prévio:</strong> R$ ${avisoPrevio.toFixed(2)}</p>
+        <p><strong>Férias proporcionais:</strong> R$ ${feriasProp.toFixed(2)} + 1/3 = R$ ${umTercoFerias.toFixed(2)}</p>
+        <p><strong>13º proporcional:</strong> R$ ${decimoTerceiro.toFixed(2)}</p>
+        <p><strong>Multa 40% FGTS:</strong> R$ ${fgts40.toFixed(2)}</p>
+        ${feriasVencidas ? `<p><strong>Férias vencidas + 1/3:</strong> R$ ${feriasVencidasValor.toFixed(2)}</p>` : ""}
+        <hr>
+        <p><strong>Total a receber:</strong> <span style="color:#20d5e5">R$ ${total.toFixed(2)}</span></p>
+      `;
+    }
+  </script>
+</body>
+</html>
