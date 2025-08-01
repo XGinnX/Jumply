@@ -6,7 +6,6 @@
     <title>Jumply|Home</title>
     <link rel="stylesheet" href="./Css/style_index.css">
     <link rel="shortcut icon" type="imagex/png" href="./Imagens/jumply-logo.png">
-
 </head>
 
 <body>
@@ -42,9 +41,9 @@
     <footer class="rodape">
         <div class="rodape__linha_1">
             <div class="rodape__coluna">
-                  <a onclick="loadPage('home.html')" class="logo-link centralizar-coluna">
-                <img src="./Imagens/jumply-logo.png" id="logo" alt="Logo">
-            </a>
+                <a onclick="loadPage('home.html')" class="logo-link centralizar-coluna">
+                    <img src="./Imagens/jumply-logo.png" id="logo" alt="Logo">
+                </a>
                 <p class="rodape__descricao">
                     A <span class="azul">Jumply</span> é uma plataforma criada <span class="azul">por jovens</span> e
                     <span class="azul">para jovens</span>, dedicada a apoiar você nessa <span class="azul">jornada
@@ -54,13 +53,18 @@
             <div class="rodape__coluna">
                 <h2 class="rodape__titulo"> Social </h2>
                 <ul class="rodape__lista-links">
-                    <li><a class="rodape__lista-links__item" href="https://www.linkedin.com/in/jumply-jovens-980721376?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    <li><a class="rodape__lista-links__item"
+                            href="https://www.linkedin.com/in/jumply-jovens-980721376?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                             target="_blank">LinkedIn</a></li>
-                    <li><a class="rodape__lista-links__item" href="https://twitter.com/login?lang=pthttps://www.instagram.com/jumply.pro?igsh=MWMyaGI0d3Nid2s1dw=="
+                    <li><a class="rodape__lista-links__item"
+                            href="https://twitter.com/login?lang=pthttps://www.instagram.com/jumply.pro?igsh=MWMyaGI0d3Nid2s1dw=="
                             target="_blank">Instagram</a></li>
-                    <li><a class="rodape__lista-links__item" href="https://www.tiktok.com/@jumply.pro?_t=ZM-8yGrsQZOlsu&_r=1"
-                            target="_blank">Tiktok</a></li>
-                    <li><a class="rodape__lista-links__item" href="https://www.tiktok.com/@jumply.pro?_t=ZM-8yGrsQZOlsu&_r=1" target="_blank">Youtube</a></li>
+                    <li><a class="rodape__lista-links__item"
+                            href="https://www.tiktok.com/@jumply.pro?_t=ZM-8yGrsQZOlsu&_r=1" target="_blank">Tiktok</a>
+                    </li>
+                    <li><a class="rodape__lista-links__item"
+                            href="https://www.tiktok.com/@jumply.pro?_t=ZM-8yGrsQZOlsu&_r=1" target="_blank">Youtube</a>
+                    </li>
                 </ul>
             </div>
             <div class="rodape__coluna">
@@ -69,8 +73,8 @@
                     <li><a class="rodape__lista-links__item" onclick="loadPage('home.html')">Home</a></li>
                     <li><a class="rodape__lista-links__item" onclick="loadPage('quemsomos.html')">Quem somos</a> </li>
                     <li><a class="rodape__lista-links__item" href="#">Cursos e Treinamentos</a></li>
-                    <li><a class="rodape__lista-links__item" onclick="loadPage('ebook.html')"">Ebooks</a></li>
-                    <li><a class="rodape__lista-links__item" href="Contato.html">Contato</a></li>
+                    <li><a class="rodape__lista-links__item" onclick="loadPage('ebook.html')">Ebooks</a></li>
+                    <li><a class="rodape__lista-links__item" onclick="loadPage('calculadora.html')">Calculadora</a></li>
                 </ul>
             </div>
         </div>
@@ -80,10 +84,20 @@
     </footer>
     <script src="./Js/carregamento.js"></script>
     <script src="./Js/carregamento.js"></script>
+    <script>
+        window.onload = function () {
+            loadPage('home.html');
+        };
+    </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TZ4R5JZSVZ"></script>
 <script>
-    window.onload = function () {
-        loadPage('home.html');
-    };
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TZ4R5JZSVZ');
 </script>
 </body>
+
 </html>
